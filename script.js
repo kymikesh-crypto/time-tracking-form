@@ -66,7 +66,7 @@ function parseCSV(csvText) {
                 
                 // Assume it's a customer if it's not a team, not a skip keyword, and looks like a name
                 if (!shouldSkip && 
-                    value.length > 1 &&
+                    value.legth > 1 &
                     !data.customers.includes(value) &&
                     !data.teams.includes(value)) {
                     // Additional validation: should look like a company/customer name
