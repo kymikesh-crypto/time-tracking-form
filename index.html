@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Time Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weekly Time Tracking</h1>
+            <p class="subtitle">Track your time by team and customer</p>
+        </header>
+
+        <form id="timeTrackingForm" style="display: none;">
+            <!-- Team Selection -->
+            <div class="form-section">
+                <label for="teamSelect" class="form-label">Select Your Team *</label>
+                <select id="teamSelect" name="team" required class="form-control">
+                    <option value="">-- Select a team --</option>
+                    <!-- Teams will be populated from Google Sheets CSV -->
+                </select>
+            </div>
+
+            <!-- Customer Selection -->
+            <div class="form-section">
+                <label class="form-label">Select Customers You Worked On *</label>
+                <div id="customerSelection" class="customer-checkboxes">
+                    <!-- Customer checkboxes will be dynamically generated from Google Sheets CSV -->
+                </div>
+                <small class="form-hint">Select all customers you worked with this week</small>
+            </div>
+
+            <!-- Dynamic Hour Inputs -->
+            <div id="hourInputsSection" class="form-section" style="display: none;">
+                <label class="form-label">Hours Worked by Customer</label>
+                <div id="hourInputs">
+                    <!-- Hour input fields will be dynamically generated -->
+                </div>
+            </div>
+
+            <!-- Week Selection -->
+            <div class="form-section">
+                <label for="weekSelect" class="form-label">Select Week *</label>
+                <input type="week" id="weekSelect" name="week" required class="form-control">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-section">
+                <button type="submit" id="submitBtn" class="btn btn-primary" disabled>Submit Time Tracking</button>
+            </div>
+        </form>
+
+        <!-- Results Display -->
+        <div id="results" class="results-section" style="display: none;">
+            <h2>Time Tracking Summary</h2>
+            <div id="resultsContent"></div>
+            <button id="newEntryBtn" class="btn btn-secondary">Track Another Week</button>
+        </div>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <p>Loading form data from Google Sheets...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
